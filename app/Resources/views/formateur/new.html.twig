@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class= "container shadow col-5">
+   <div class="container bg-info text-light col-6">
+    <h1>Formateur</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Create" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('formateur_index') }}">Back to the list</a>
+        </li>
+    </ul>
+      </div>
+    </div>
+{% endblock %}

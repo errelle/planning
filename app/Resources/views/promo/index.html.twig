@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class= "container shadow col-5">
+   <div class="container bg-info text-light col-6">
+    <h1>Promos list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nbeleve</th>
+                <th>Nom</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for promo in promos %}
+            <tr>
+                <td><a href="{{ path('promo_show', { 'id': promo.id }) }}">{{ promo.id }}</a></td>
+                <td>{{ promo.nbeleve }}</td>
+                <td>{{ promo.nom }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('promo_show', { 'id': promo.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('promo_edit', { 'id': promo.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('promo_new') }}">Create a new promo</a>
+        </li>
+    </ul>
+      </div>
+    </div>
+{% endblock %}

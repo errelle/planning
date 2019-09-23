@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class= "container shadow col-5">
+   <div class="container bg-info text-light col-6">
+    <h1>Planning</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ planning.id }}</td>
+            </tr>
+            <tr>
+                <th>Semaine</th>
+                <td>{{ planning.semaine }}</td>
+            </tr>
+            <tr>
+                <th>Jour</th>
+                <td>{{ planning.jour}}</td>
+            </tr>
+            <tr>
+                <th>Demi-journée</th>
+                <td>{{ planning.demijournee }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('planning_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('planning_edit', { 'id': planning.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+      </div>
+    </div>
+{% endblock %}

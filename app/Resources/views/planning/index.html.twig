@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class= "container shadow col-5">
+   <div class="container bg-info text-light col-6">
+    <h1>Plannings list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Semaine</th>
+                <th>Jour</th>
+                <th>Demi-journée</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for planning in plannings %}
+            <tr>
+                <td><a href="{{ path('planning_show', { 'id': planning.id }) }}">{{ planning.id }}</a></td>
+                <td>{{ planning.semaine }}</td>
+                <td>{{ planning.jour }}</td>
+                <td>{{ planning.demijournee }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('planning_show', { 'id': planning.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('planning_edit', { 'id': planning.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('planning_new') }}">Create a new planning</a>
+        </li>
+    </ul>
+      </div>
+    </div>
+{% endblock %}

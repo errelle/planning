@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class= "container shadow col-5">
+   <div class="container bg-info text-light col-6">
+    <h1>Réservation</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ resultat.id }}</td>
+            </tr>
+            <tr>
+                <th>Formateur</th>
+                <td>{{ resultat.formateur }}</td>
+            </tr>
+            <tr>
+                <th>Promo</th>
+                <td>{{ resultat.promo }}</td>
+            </tr>
+            <tr>
+                <th>Salle</th>
+                <td>{{ resultat.salle }}</td>
+            </tr>
+            <tr>
+                <th>Planning</th>
+                <td>{{ resultat.planning }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('resultat_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('resultat_edit', { 'id': resultat.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+      </div>
+    </div>
+{% endblock %}
